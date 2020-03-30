@@ -27,3 +27,13 @@ let myGroup = {
         }
     ]
 }
+
+console.log(myGroup.menthor);
+console.log(myGroup.members.length);
+let ageSum = 0;
+for (let i = 0; i < myGroup.members.length; i++) {
+    ageSum += Number(myGroup.members[i].age);
+}
+console.log(ageSum);
+
+console.log(ageSum/myGroup.members.length);

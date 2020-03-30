@@ -1,11 +1,10 @@
-/*
-<div class="comment">
+{/* <div class="comment">
     <h2>Autor: Krzysztof Łokaj</h2>
     <span>Wysłane 20.03.2019</span>
     <p>
         Ten warsztat jest po prostu świetny
     </p>
-</div>
+</div> */}
 
 let comment = {
     author: "Andrzej Molek",
@@ -40,4 +39,55 @@ let comments = [
         msg: "Ej Zenek, ukradłeś mi tekst..."
     }
 ]
-*/
+
+//1.
+let $paragraph = document.createElement('p');
+$paragraph.textContent = 'Dabingo Albingo';
+
+let $body = document.querySelector('body');
+$body.append($paragraph);
+
+//2.
+// Stwórz komentarz i dodaj go do sekcji o id comments,
+// poniżej masz jego strukturę:
+
+/* <div class="comment">
+<h2>Autor: Krzysztof Łokaj</h2>
+<span>Wysłane 20.03.2019</span>
+<p>
+    Ten warsztat jest po prostu świetny
+</p>
+</div> */
+
+
+
+// >
+//     <h2>Autor: Krzysztof Łokaj</h2>
+//     <span>Wysłane 20.03.2019</span>
+//     <p>
+//         Ten warsztat jest po prostu świetny
+//     </p>
+//     </div>'
+// );
+document.querySelector('#comments').append(createCommentNode(comment));
+
+
+function createCommentNode(commentJson) {
+    let $commentDiv = document.createElement('div');
+    $commentDiv.classList.add("comment");
+
+    let $h2 = document.createElement('h2');
+    $h2.innerText = commentJson.author;
+
+    let $span = document.createElement('span');
+    $span.innerText = commentJson.date;
+
+    let $commentParagraph = document.createElement('p');
+    $commentParagraph.innerText = commentJson.msg;
+
+    $commentDiv.append($h2);
+    $commentDiv.append($span);
+    $commentDiv.append($commentParagraph);
+
+    return $commentDiv;
+}

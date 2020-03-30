@@ -78,3 +78,51 @@ let classAvaiable = [
         minAge: 20
     }
 ];
+
+/**
+ * Skorzystaj z obiektu powyżej i
+ * znajdź możliwe klasy, w których
+ * grupa mogła by mieć zajęcia,
+ * listę klas znajdziesz niżej,
+ * Uwaga ze względu, że szkolenie
+ * odbywa się w szkole samochodowej
+ * to mechanicy zostawili pewne plakaty,
+ * które nie powinny zobaczyć
+ * osoby nieletnie.
+ * Każda sala posiada atrybut
+ * minAge który definiuje od jakiego
+ * wieku można tam wejść ;>
+ */
+
+let membersMinAge
+let groupMembers = myGroup.members;
+for (let i = 0; i < groupMembers.length; i++) {
+    if (membersMinAge == undefined) {
+        membersMinAge = groupMembers[i].age;
+    } else if (membersMinAge > groupMembers[i].age) {
+        membersMinAge = groupMembers[i].age;
+    }
+}
+
+let arrayWithAges = [];
+for(let i = 0; i < myGroup.members.length; i++) {
+    arrayWithAges.push(myGroup.members[i].age);
+}
+console.log('Array with ages' + arrayWithAges);
+console.log('Min age with Math.min() : ' + Math.min(...arrayWithAges));
+
+console.log('The smallest age is ' + membersMinAge);
+
+let membersCount = groupMembers.length;
+let fittingClasses = [];
+for(let i = 0; i < classAvaiable.length ; i++ ) {
+    let currentCheckedClass = classAvaiable[i];
+    if (currentCheckedClass.slots >= membersCount && currentCheckedClass.minAge <= membersMinAge){
+        fittingClasses.push(currentCheckedClass.name);
+    } else {
+        // debugger;
+    }
+
+}
+
+console.log('Fitting classes : ' + fittingClasses);

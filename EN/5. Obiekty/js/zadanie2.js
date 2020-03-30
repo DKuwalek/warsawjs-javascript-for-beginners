@@ -1,11 +1,16 @@
 let myClass = {
-    title:  'JavaScript jest świetny',
+    title:  'JavaScript is awesome.',
     room: {
         number: 112,
-        numberOfSits: 30,
+        numberOfSeats: 30,
         owner: {
-            name: 'Maciej Wij',
+            name: 'Jason Object',
             teachFrom: 'Chemist'
         }
     }
-}
+};
+
+console.log(myClass);
+console.log(myClass.title);
+console.log(myClass.room.numberOfSeats);
+console.log(myClass.room.owner.teachFrom);
